@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Cart | Safeer Abbas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --sky-blue: #00d2ff;
+            --dark-navy: #020b1a;
+            --glow: rgba(0, 210, 255, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-navy);
+            background-image:
+                radial-gradient(circle at top right, #0a2342 0%, transparent 40%),
+                radial-gradient(circle at bottom left, #051937 0%, transparent 40%);
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Responsive UI Card */
+        .intro-card {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(2, 11, 26, 0.9);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--sky-blue);
+            border-radius: 25px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(0, 210, 255, 0.25);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .brand-logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            color: var(--sky-blue);
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px var(--glow);
+            letter-spacing: 5px;
+        }
+
+        /* Introduction Content */
+        .content-box {
+            margin-bottom: 40px;
+        }
+
+        .main-text {
+            font-size: clamp(1.1rem, 5vw, 1.5rem);
+            line-height: 1.6;
+            color: #e0e0e0;
+            font-weight: 400;
+        }
+
+        .main-text span {
+            color: var(--sky-blue);
+            font-weight: 700;
+            text-shadow: 0 0 10px var(--glow);
+        }
+
+        /* Owner Tag */
+        .owner-tag {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 5px 20px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--sky-blue);
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--sky-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Next Button */
+        .next-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 60px;
+            background: var(--sky-blue);
+            color: var(--dark-navy);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.4s;
+            box-shadow: 0 0 25px var(--glow);
+        }
+
+        .next-btn:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .intro-card { padding: 40px 20px; }
+            .next-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="intro-card">
+        <h1 class="brand-logo">SKY CART</h1>
+
+        <div class="content-box">
+            <p class="main-text">
+                Hello, I am <span>Safeer Abbas</span>. <br>
+                I am a 14-year-old Web Developer with a strong interest in Python. <br>
+                I am the <span>Owner</span> of this website. <br><br>
+                Enjoy the <span>Sky Cart</span> experience.
+            </p>
+            <div class="owner-tag">Official Developer Portal</div>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}" class="next-btn">
+            NEXT <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCart | Women's Ethnic Collection</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --sky-dark: #000428;
+            --sky-blue: #004e92;
+            --sky-light: #00d2ff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: radial-gradient(circle at center, var(--sky-blue) 0%, var(--sky-dark) 100%);
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding-bottom: 80px;
+        }
+
+        /* High-Performance Navigation */
+        .top-nav {
+            padding: 20px 0;
+            background: rgba(0, 4, 40, 0.85);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--sky-light);
+        }
+
+        .brand-name { letter-spacing: 5px; font-weight: 700; font-size: 1.6rem; margin: 0; }
+        .brand-name span { color: var(--sky-light); }
+
+        .page-header { padding: 60px 0 30px; text-align: center; }
+        .page-header h1 { font-size: 3rem; font-weight: 700; color: var(--sky-light); text-transform: uppercase; letter-spacing: 3px; }
+
+        /* Professional 4-Column Grid System */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--sky-light);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.3);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 420px; /* Precise height for long dresses */
+            overflow: hidden;
+            background: #000;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 1s ease;
+        }
+
+        .product-card:hover .img-container img {
+            transform: scale(1.1);
+        }
+
+        .card-details { padding: 22px; text-align: center; }
+        .item-title { font-size: 1.1rem; color: #ffffff; margin-bottom: 10px; font-weight: 500; }
+        .item-price { font-size: 1.4rem; font-weight: 700; color: var(--sky-light); display: block; margin-bottom: 18px; }
+
+        .btn-select {
+            background: linear-gradient(45deg, var(--sky-blue), var(--sky-light));
+            border: none;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .btn-select:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 20px var(--sky-light);
+        }
+
+        @media (max-width: 1200px) { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .product-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/dashboard" class="text-white text-decoration-none"><i class="fas fa-arrow-left"></i> Hub</a>
+            <h4 class="brand-name">SKY<span>CART</span></h4>
+            <div class="d-flex gap-3"><i class="fas fa-heart"></i><i class="fas fa-shopping-bag"></i></div>
+        </div>
+    </nav>
+
+    <header class="page-header container">
+        <p class="opacity-50 text-uppercase" style="letter-spacing: 6px;">Traditional & Modern Fusion</p>
+        <h1>Women's Collection</h1>
+    </header>
+
+    <main class="container">
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=600"
+                         onerror="this.src='https://images.pexels.com/photos/1018911/pexels-photo-1018911.jpeg?w=600'" alt="W1">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Embroidered Royal Lawn</div>
+                    <span class="item-price">PKR 8,500</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1610030469614-22c7a3606900?w=600"
+                         onerror="this.src='https://images.pexels.com/photos/3310695/pexels-photo-3310695.jpeg?w=600'" alt="W2">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Midnight Velvet Suite</div>
+                    <span class="item-price">PKR 15,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=600"
+                         onerror="this.src='https://images.pexels.com/photos/2010812/pexels-photo-2010812.jpeg?w=600'" alt="W3">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Luxury Chiffon Collection</div>
+                    <span class="item-price">PKR 12,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1611612423164-88f572628be7?w=600"
+                         onerror="this.src='https://images.pexels.com/photos/2866119/pexels-photo-2866119.jpeg?w=600'" alt="W4">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Festive Silk Ensemble</div>
+                    <span class="item-price">PKR 18,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/3682240/pexels-photo-3682240.jpeg?w=600"
+                         onerror="this.src='https://images.unsplash.com/photo-1603189343302-e603f7add05a?w=600'" alt="W5">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Daily Cotton Elegance</div>
+                    <span class="item-price">PKR 4,500</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/4005033/pexels-photo-4005033.jpeg?w=600"
+                         onerror="this.src='https://images.unsplash.com/photo-1594465919760-441fe5908ab0?w=600'" alt="W6">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Pre-Bridal Couture</div>
+                    <span class="item-price">PKR 35,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1631525049580-c11df565020c?w=600"
+                         onerror="this.src='https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?w=600'" alt="W7">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Modern Digital Kurti</div>
+                    <span class="item-price">PKR 3,500</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?w=600"
+                         onerror="this.src='https://images.unsplash.com/photo-1543076447-215ad9ba6923?w=600'" alt="W8">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Organza Masterpiece</div>
+                    <span class="item-price">PKR 22,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-5 opacity-25">
+        &copy; 2026 SKY CART | PREMIUM WOMEN PORTAL
+    </footer>
+
+</body>
+</html>

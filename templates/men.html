@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCart | Men's Final Inventory</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --sky-dark: #000428;
+            --sky-blue: #004e92;
+            --sky-light: #00d2ff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background: radial-gradient(circle at center, var(--sky-blue) 0%, var(--sky-dark) 100%);
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding-bottom: 80px;
+        }
+
+        .top-nav {
+            padding: 20px 0;
+            background: rgba(0, 4, 40, 0.85);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--sky-light);
+        }
+
+        .brand-name { letter-spacing: 5px; font-weight: 700; font-size: 1.6rem; margin: 0; }
+        .brand-name span { color: var(--sky-light); }
+
+        .page-header { padding: 60px 0 30px; text-align: center; }
+        .page-header h1 { font-size: 3rem; font-weight: 700; color: var(--sky-light); text-transform: uppercase; }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--sky-light);
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.2);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.8s;
+        }
+
+        .card-details { padding: 20px; text-align: center; }
+        .item-title { font-size: 1rem; color: #eee; margin-bottom: 8px; font-weight: 500; }
+        .item-price { font-size: 1.3rem; font-weight: 700; color: var(--sky-light); display: block; margin-bottom: 15px; }
+
+        .btn-select {
+            background: linear-gradient(45deg, var(--sky-blue), var(--sky-light));
+            border: none; color: white; padding: 10px; width: 100%;
+            border-radius: 10px; font-weight: 600; text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="/dashboard" class="text-white text-decoration-none"><i class="fas fa-arrow-left"></i> Hub</a>
+            <h4 class="brand-name">SKY<span>CART</span></h4>
+            <div><i class="fas fa-shopping-cart"></i></div>
+        </div>
+    </nav>
+
+    <header class="page-header container">
+        <h1>Men's Inventory</h1>
+    </header>
+
+    <main class="container">
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=500" alt="M1">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Premium Blue Suit</div>
+                    <span class="item-price">PKR 25,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500" alt="M2">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Urban Black Blazer</div>
+                    <span class="item-price">PKR 32,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=500" alt="M3">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Executive Gray Vest</div>
+                    <span class="item-price">PKR 18,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/1321943/pexels-photo-1321943.jpeg?auto=compress&cs=tinysrgb&w=500" alt="M4">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Modern Slim Fit</div>
+                    <span class="item-price">PKR 28,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500" alt="M5">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Classic Business Suit</div>
+                    <span class="item-price">PKR 45,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=500" alt="M6">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Designer Overcoat</div>
+                    <span class="item-price">PKR 55,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=500" alt="M7">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Winter Leather Jacket</div>
+                    <span class="item-price">PKR 12,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-container">
+                    <img src="https://images.pexels.com/photos/157675/fashion-men-s-fashion-man-portrait-157675.jpeg?auto=compress&cs=tinysrgb&w=500" alt="M8">
+                </div>
+                <div class="card-details">
+                    <div class="item-title">Royal Midnight Suit</div>
+                    <span class="item-price">PKR 60,000</span>
+                    <button class="btn-select">Select Item</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-4 opacity-50">&copy; 2026 SkyCart</footer>
+
+</body>
+</html>

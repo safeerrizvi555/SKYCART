@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="SkyCart Premium Dashboard - Elite Fashion, Men, Women, and Kids Collections.">
+    <meta name="theme-color" content="#000428">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="SkyCart | Premium Dashboard">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Access the SkyCart premium inventory and collections.">
+
+    <title>SkyCart | Premium Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES (DESIGN TOKENS) --- */
+        :root {
+            /* Color Palette */
+            --bg-deep: #000428;
+            --bg-gradient-start: #000428;
+            --bg-gradient-end: #004e92;
+            --accent-cyan: #00d2ff;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+            /* Typography */
+            --font-primary: 'Outfit', sans-serif;
+            --font-display: 'Playfair Display', serif;
+
+            /* Animation Timings */
+            --transition-fast: all 0.3s ease;
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: transform 1.5s cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        /* --- CSS RESET & BASE STYLES --- */
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-primary);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- FULL SCREEN ANIMATED BACKGROUND --- */
+        .sky-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- NAVBAR STYLES --- */
+        .sky-nav {
+            padding: 20px 0;
+            background: rgba(0, 4, 40, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Brand Logo Container */
+        .nav-brand-container {
+            display: flex;
+            justify-content: flex-start; /* Aligned left as right items are removed */
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-brand-text {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .nav-brand-text span {
+            color: var(--text-primary);
+            font-weight: 300;
+        }
+
+        .nav-brand-text:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px var(--accent-cyan);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .main-content {
+            flex: 1 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- HERO / WELCOME SECTION --- */
+        .welcome-header {
+            padding: 100px 0 70px;
+            text-align: center;
+            animation: fadeInDown 1s ease-out forwards;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 25px;
+            background: rgba(0, 210, 255, 0.08);
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            border-radius: 50px;
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .welcome-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .welcome-header h1 span {
+            color: var(--accent-cyan);
+            font-style: italic;
+        }
+
+        .welcome-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- CATEGORY GRID ARCHITECTURE --- */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            padding-bottom: 120px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out 0.3s forwards;
+        }
+
+        /* --- PRO CARD STYLES --- */
+        .pro-card {
+            position: relative;
+            height: 520px;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            text-decoration: none;
+            display: flex;
+            align-items: flex-end;
+            background-color: rgba(0,0,0,0.5); /* Fallback */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        /* Dark overlay gradient for text readability */
+        .pro-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 4, 40, 0.95) 5%, rgba(0, 4, 40, 0.4) 50%, transparent 90%);
+            z-index: 1;
+            transition: var(--transition-smooth);
+        }
+
+        /* Background Image Element */
+        .card-img-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: var(--transition-slow);
+            z-index: 0;
+        }
+
+        /* Hover Effects */
+        .pro-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 25px 50px rgba(0, 210, 255, 0.15);
+            transform: translateY(-12px);
+        }
+
+        .pro-card:hover .card-img-bg {
+            transform: scale(1.12);
+        }
+
+        .pro-card:hover::before {
+            background: linear-gradient(to top, rgba(0, 4, 40, 0.98) 10%, rgba(0, 4, 40, 0.5) 60%, transparent 100%);
+        }
+
+        /* Card Content Inner Container */
+        .card-body-content {
+            position: relative;
+            z-index: 2;
+            padding: 45px 40px;
+            width: 100%;
+            transform: translateY(0);
+            transition: var(--transition-smooth);
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .card-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            font-family: var(--font-primary);
+            letter-spacing: 1px;
+        }
+
+        .explore-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            gap: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .explore-link i {
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .pro-card:hover .explore-link i {
+            transform: translateX(12px);
+            color: var(--accent-cyan);
+        }
+
+        /* --- FOOTER STYLES --- */
+        .sky-footer {
+            flex-shrink: 0;
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 0;
+            text-align: center;
+            background: rgba(0, 4, 40, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+
+        /* --- KEYFRAME ANIMATIONS --- */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 1200px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25px;
+            }
+            .pro-card {
+                height: 480px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .welcome-header {
+                padding: 80px 0 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-brand-text {
+                font-size: 1.6rem;
+            }
+            .welcome-header h1 {
+                font-size: 2.5rem;
+            }
+            .pro-card {
+                height: 420px;
+            }
+            .card-body-content {
+                padding: 30px;
+            }
+            .card-title {
+                font-size: 2rem;
+            }
+            .sky-nav {
+                padding: 15px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            .status-pill {
+                font-size: 0.75rem;
+                padding: 6px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sky-bg" aria-hidden="true"></div>
+
+    <nav class="sky-nav" role="navigation" aria-label="Main Navigation">
+        <div class="container">
+            <div class="nav-brand-container">
+                <a href="/dashboard" class="nav-brand-text" aria-label="SkyCart Home">
+                    Sky<span>Cart</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content container" role="main">
+
+        <header class="welcome-header">
+            <div class="status-pill" role="status" aria-live="polite">
+                <i class="fa-solid fa-shield-check me-2"></i> System Status: Secure & Active
+            </div>
+            <h1>Welcome Back, <span>Sir.</span></h1>
+            <p>Select a collection to begin your session.</p>
+        </header>
+
+        <section class="category-grid" aria-label="Product Collections">
+
+            <a href="/men" class="pro-card" aria-label="Access Men's Collection">
+                <div class="card-img-bg" style="background-image: url('https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=2066&auto=format&fit=crop');" aria-hidden="true"></div>
+                <div class="card-body-content">
+                    <span class="card-tag">Collection 2026</span>
+                    <h2 class="card-title">Men</h2>
+                    <div class="explore-link">
+                        Access Inventory <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/women" class="pro-card" aria-label="Access Women's Collection">
+                <div class="card-img-bg" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1974&auto=format&fit=crop');" aria-hidden="true"></div>
+                <div class="card-body-content">
+                    <span class="card-tag">Elite Fashion</span>
+                    <h2 class="card-title">Women</h2>
+                    <div class="explore-link">
+                        Access Inventory <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="/kids" class="pro-card" aria-label="Access Kids' Collection">
+                <div class="card-img-bg" style="background-image: url('https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?q=80&w=2080&auto=format&fit=crop');" aria-hidden="true"></div>
+                <div class="card-body-content">
+                    <span class="card-tag">New Generation</span>
+                    <h2 class="card-title">Kids</h2>
+                    <div class="explore-link">
+                        Access Inventory <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer class="sky-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-text">
+                &copy; 2026 SKY CART CORE | ENCRYPTED SESSION INFRASTRUCTURE
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>

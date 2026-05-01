@@ -1,0 +1,245 @@
+/* ================================================================
+    SKY CART | PROFESSIONAL GLOBAL STYLING SYSTEM
+    CORE VERSION: 5.0.1 (STABLE)
+    THEME: DEEP BLUE / DARK NAVY (NIGHT MODE)
+    ================================================================
+*/
+
+/* 1. ROOT VARIABLES - Centralized Color Palette */
+:root {
+    --primary-glow: #00d2ff;
+    --secondary-glow: #004e92;
+    --dark-bg: #000428;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+    --accent-red: #ff4b2b;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-main: 'Outfit', sans-serif;
+    --font-code: 'Fira Code', monospace;
+}
+
+/* 2. GLOBAL RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background: radial-gradient(circle at top right, var(--secondary-glow) 0%, var(--dark-bg) 100%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 3. CUSTOM SCROLLBAR (Developer Edition) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--secondary-glow), var(--primary-glow));
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-glow);
+}
+
+/* 4. REUSABLE GLASSMORPHISM UTILITIES */
+.glass-panel {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+}
+
+.glass-hover:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary-glow);
+    box-shadow: 0 15px 35px rgba(0, 210, 255, 0.2);
+}
+
+/* 5. NAVIGATION SYSTEM STYLES */
+.main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    padding: 1.5rem 0;
+    background: rgba(0, 4, 40, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--primary-glow);
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
+}
+
+/* 6. PRODUCT GRID & CARD LOGIC */
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.product-card {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.product-image-box {
+    width: 100%;
+    height: 400px;
+    background: #000;
+    overflow: hidden;
+}
+
+.product-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.product-card:hover .product-image-box img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.price-tag {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-glow);
+    display: block;
+    margin: 10px 0;
+}
+
+/* 7. BUTTON ARCHITECTURE */
+.btn-primary {
+    background: linear-gradient(45deg, var(--secondary-glow), var(--primary-glow));
+    border: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4);
+    filter: brightness(1.1);
+}
+
+/* 8. FORM ELEMENTS (LOGIN/SIGNUP) */
+.form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 18px;
+    border-radius: 15px;
+    color: white;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+.form-input:focus {
+    border-color: var(--primary-glow);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* 9. ANIMATIONS & KEYFRAMES */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-element {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.4); }
+    70% { box-shadow: 0 0 0 20px rgba(0, 210, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
+
+/* 10. ERROR PAGE SPECIAL LOGIC (404) */
+.glitch-text {
+    font-family: var(--font-main);
+    font-size: 12rem;
+    font-weight: 900;
+    color: var(--primary-glow);
+    text-shadow: 4px 4px var(--secondary-glow);
+}
+
+/* 11. FOOTER STYLING */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    opacity: 0.5;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* 12. RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+    .inventory-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .inventory-grid { grid-template-columns: 1fr; }
+    .nav-container { flex-direction: column; gap: 15px; }
+}
+
+/* 13. UTILITY CLASSES */
+.text-glow { text-shadow: 0 0 10px var(--primary-glow); }
+.mt-50 { margin-top: 50px; }
+.p-20 { padding: 20px; }
